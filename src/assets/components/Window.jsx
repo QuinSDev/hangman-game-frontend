@@ -1,8 +1,9 @@
 import React from "react";
-import logoHangman from "../images/icon_hangman.png";
+import logoHangman from "../images/logo_hangman.png";
 import bgWindowContent from "../images/walppaperHome-min.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 export const Window = () => {
   const bgButton = {
@@ -35,7 +36,7 @@ export const Window = () => {
       <div className="h-12 bg-[rgba(41,38,38,0.459)] flex justify-start items-center rounded-t-md px-2">
         <img className="w-6 h-6" src={logoHangman} alt="" />
         <h3 className="ml-5 font-semibold text-base text-black">
-          Hangman Game
+          Juego El Ahorcado
         </h3>
       </div>
       <div className="rounded-b-md h-full w-full" style={borderStyle}>
@@ -50,6 +51,7 @@ export const Window = () => {
             />
           </div>
           <div className="card-actions flex-col items-center justify-evenly h-56 ">
+            <Link to='/juego-nuevo'>
             <button
               type="button"
               className="w-24 h-9 text-black text-xs text-center "
@@ -57,6 +59,7 @@ export const Window = () => {
             >
               Iniciar Juego
             </button>
+            </Link>
             <button
               className="w-24 h-9 text-black text-xs text-center"
               style={bgButton}
