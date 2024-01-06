@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import bgWindowImage from '../assets/images/windows-xp-bliss-wallpaper-preview-min.jpg'
-import { Window } from '../assets/components/Window'
+import { Window } from '../components/Window'
 import { Game } from './Game';
 
 export const Home = () => {
@@ -19,7 +19,6 @@ const bgWindow = {
           <Route path='juego-nuevo' element={<Game />}/>
         </Routes>
       </Router>
-        
     </div>
   )
 }

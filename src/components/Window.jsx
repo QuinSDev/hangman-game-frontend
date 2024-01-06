@@ -1,6 +1,6 @@
 import React from "react";
-import logoHangman from "../images/logo_hangman.png";
-import bgWindowContent from "../images/walppaperHome-min.png";
+import logoHangman from "../assets/images/logo_hangman.png";
+import bgWindowContent from "../assets/images/walppaperHome-min.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
