@@ -1,6 +1,8 @@
 import React from 'react'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import bgWindowImage from '../assets/images/windows-xp-bliss-wallpaper-preview-min.jpg'
 import { Window } from '../assets/components/Window'
+import { Game } from './Game';
 
 export const Home = () => {
 const bgWindow = {
@@ -11,7 +13,13 @@ const bgWindow = {
 
   return (
     <div className='h-[100vh] flex p-10 items-center justify-center' style={bgWindow}>
-        <Window />
+      <Router>
+        <Routes>
+          <Route path='/' element={<Window />}/>
+          <Route path='juego-nuevo' element={<Game />}/>
+        </Routes>
+      </Router>
+        
     </div>
   )
 }
