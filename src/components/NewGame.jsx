@@ -12,6 +12,8 @@ export const NewGame = ({
   onEnter,
   scoreGame,
   error,
+  inputValue,
+  setInputValue
 }) => {
   const borderStyle = {
     borderLeft: "3px solid #4c4a48",
@@ -72,6 +74,8 @@ export const NewGame = ({
             onEnter={onEnter}
             scoreGame={scoreGame}
             error={error}
+            inputValue={inputValue}
+            setInputValue={setInputValue}
           />
         </div>
       </div>
