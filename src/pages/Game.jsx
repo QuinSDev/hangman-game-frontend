@@ -1,10 +1,10 @@
 import React from 'react'
-import { NewGame } from '../components/NewGame'
+import { Function } from '../logic/Function'
 
 export const Game = () => {
   return (
     <div className='w-full h-full flex'>
-        <NewGame />
+        <Function />
         <div></div>
     </div>
   )
