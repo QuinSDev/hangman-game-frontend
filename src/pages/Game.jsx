@@ -5,7 +5,6 @@ export const Game = () => {
   return (
     <div className='w-full h-full flex'>
         <Function />
-        <div></div>
     </div>
   )
 }

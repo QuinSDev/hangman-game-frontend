@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NewGame } from "../components/NewGame";
 import { Words } from "../api/Words";
+import { LetterFind } from "../components/LetterFind";
 
 export const Function = () => {
   const [wordSecret, setWordSecret] = useState("");
@@ -8,10 +9,10 @@ export const Function = () => {
   const [inputValue, setInputValue] = useState();
   const [position, setPosition] = useState(0);
   const [scoreGame, setScoreGame] = useState(0);
-  const [counter, setCounter] = useState(0);
   const [words, setWords] = useState();
   const [bolean, setBolean] = useState(true);
   const [letterFind, setLetterFind] = useState([]);
+  const [lettersFinds, setLettersFinds] = useState([])
   const [randomWordIndex, setRandomWordIndex] = useState(null);
   const [word, setWord] = useState([]);
   let letter = "";
@@ -26,8 +27,9 @@ export const Function = () => {
 
   async function start() {
     setPosition(0);
-    setCounter(0);
     setWordSecret("");
+    setLetterFind([])
+    setLettersFinds([])
 
     const randomIndex = Math.floor(Math.random() * words.length);
     setRandomWordIndex(randomIndex);
@@ -69,6 +71,7 @@ export const Function = () => {
     if (!letterFind.includes(letter)) {
       setLetterFind((prevState) => [...prevState, letter]);
       const newWord = [...word];
+      setLettersFinds((prevLetter) => [...prevLetter, letter])
       for (let initial = 0; initial < currentWord.length; initial++) {
         if (currentWord.substring(initial, initial + 1) === letter) {
           newWord[initial] = letter;
@@ -98,6 +101,7 @@ export const Function = () => {
   }, [word]);
 
   return (
+    <div className="w-full h-full flex justify-between">
     <NewGame
       position={position}
       wordSecret={wordSecret}
@@ -107,5 +111,9 @@ export const Function = () => {
       inputValue={inputValue}
       setInputValue={setInputValue}
     />
+    <div className="flex flex-col justify-end">
+    <LetterFind lettersFinds={lettersFinds.join(" ")}/>
+    </div>
+    </div>
   );
 };
