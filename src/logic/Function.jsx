@@ -2,18 +2,22 @@ import React, { useState, useEffect } from "react";
 import { NewGame } from "../components/NewGame";
 import { Words } from "../api/Words";
 import { LetterFind } from "../components/LetterFind";
+import { LoseDisplay } from "../components/LoseDisplay";
 
 export const Function = () => {
+  const [randomWordIndex, setRandomWordIndex] = useState(null);
   const [wordSecret, setWordSecret] = useState("");
   const [error, setError] = useState("");
+  const [messageLose, setMessageLose] = useState("")
+  const [words, setWords] = useState();
   const [inputValue, setInputValue] = useState();
   const [position, setPosition] = useState(0);
   const [scoreGame, setScoreGame] = useState(0);
-  const [words, setWords] = useState();
+  const [score, setScore] = useState(0)
   const [bolean, setBolean] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
   const [letterFind, setLetterFind] = useState([]);
-  const [lettersFinds, setLettersFinds] = useState([])
-  const [randomWordIndex, setRandomWordIndex] = useState(null);
+  const [lettersFinds, setLettersFinds] = useState([]);
   const [word, setWord] = useState([]);
   let letter = "";
 
@@ -28,8 +32,8 @@ export const Function = () => {
   async function start() {
     setPosition(0);
     setWordSecret("");
-    setLetterFind([])
-    setLettersFinds([])
+    setLetterFind([]);
+    setLettersFinds([]);
 
     const randomIndex = Math.floor(Math.random() * words.length);
     setRandomWordIndex(randomIndex);
@@ -71,7 +75,7 @@ export const Function = () => {
     if (!letterFind.includes(letter)) {
       setLetterFind((prevState) => [...prevState, letter]);
       const newWord = [...word];
-      setLettersFinds((prevLetter) => [...prevLetter, letter])
+      setLettersFinds((prevLetter) => [...prevLetter, letter]);
       for (let initial = 0; initial < currentWord.length; initial++) {
         if (currentWord.substring(initial, initial + 1) === letter) {
           newWord[initial] = letter;
@@ -97,23 +101,36 @@ export const Function = () => {
   }
 
   useEffect(() => {
+    if (position === 6) {
+      console.log(position);
+      setScore(scoreGame)
+      setBolean(false);
+      setOpenModal(true)
+      setMessageLose(words[randomWordIndex])
+      setScoreGame(0);
+      start()
+    }
+  }, [position]);
+
+  useEffect(() => {
     setWordSecret(word.map((word) => (word === "_" ? "_ " : word)).join(" "));
   }, [word]);
 
   return (
     <div className="w-full h-full flex justify-between">
-    <NewGame
-      position={position}
-      wordSecret={wordSecret}
-      onEnter={handelEnter}
-      scoreGame={scoreGame}
-      error={error}
-      inputValue={inputValue}
-      setInputValue={setInputValue}
-    />
-    <div className="flex flex-col justify-end">
-    <LetterFind lettersFinds={lettersFinds.join(" ")}/>
-    </div>
+      <NewGame
+        position={position}
+        wordSecret={wordSecret}
+        onEnter={handelEnter}
+        scoreGame={scoreGame}
+        error={error}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+      />
+      <div className="flex flex-col justify-end">
+        <LetterFind lettersFinds={lettersFinds.join(" ")} />
+      </div>
+      <LoseDisplay openModal={openModal} setOpenModal={setOpenModal} messageLose={messageLose} scoreGame={score}/>
     </div>
   );
 };
