@@ -1,5 +1,6 @@
 import React from "react";
-import logoHangman from "../assets/images/icon_hangman.png";
+import iconoHangman from "../assets/images/icon_hangman.png";
+import logoHangman  from "../assets/images/logo_hangman.png"
 import bgWindowContent from "../assets/images/textura-papel-cuadriculado.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
@@ -34,7 +35,7 @@ export const Window = () => {
   return (
     <div className="card shadow-xl rounded-md" style={widthWindow}>
       <div className="h-12 bg-[rgba(41,38,38,0.459)] flex justify-start items-center rounded-t-md px-2">
-        <img className="w-6 h-6" src={logoHangman} alt="" />
+        <img className="w-6 h-6" src={iconoHangman} alt="" />
         <h3 className="ml-5 font-semibold text-base text-black">
           Juego El Ahorcado
         </h3>
@@ -46,7 +47,7 @@ export const Window = () => {
           <div className="w-full h-44 flex justify-center">
             <img
               className="w-52 py-6"
-              src="/src/assets/images/logo_hangman.png"
+              src={logoHangman}
               alt=""
             />
           </div>
