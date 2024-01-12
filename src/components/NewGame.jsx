@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logoHangman from "../assets/images/logo_hangman.png";
+import logoHangman from "../assets/images/icon_hangman.png";
 import bgWindowContent from "../assets/images/textura-papel-cuadriculado.jpg";
 import { HangmanImage } from "./HangmanImage";
 import { ImagesHangman } from "../api/ImagesHangman";
@@ -53,15 +53,15 @@ export const NewGame = ({
           style={bodyStyle}
         >
           <div className="flex gap-3 p-2">
-            <button
+            {/* <button
               className="w-24 h-8 text-black text-xs text-center "
               style={bgButton}
             >
               Nuevo Juego
-            </button>
+            </button> */}
             <Link to="/">
               <button
-                className="w-24 h-8 text-black text-xs text-center"
+                className="w-20 h-7 text-black text-xs text-center"
                 style={bgButton}
               >
                 Atrás
