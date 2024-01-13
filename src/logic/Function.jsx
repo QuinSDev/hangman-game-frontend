@@ -127,7 +127,7 @@ export const Function = () => {
         inputValue={inputValue}
         setInputValue={setInputValue}
       />
-      <div className="flex flex-col justify-end">
+      <div className="hidden md:block flex-col mt-auto">
         <LetterFind lettersFinds={lettersFinds.join(" ")} />
       </div>
       <LoseDisplay openModal={openModal} setOpenModal={setOpenModal} messageLose={messageLose} scoreGame={score}/>
