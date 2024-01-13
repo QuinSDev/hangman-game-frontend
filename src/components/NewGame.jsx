@@ -35,7 +35,7 @@ export const NewGame = ({
 
   const cardStyle = {
     width: windowWidth <= 600 ? '100%' : '750px',
-    height: windowHeight <= 600 ? '100%' : '559px'
+    // height: windowHeight <= 600 ? '100%' : '559px'
   };
 
   const borderStyle = {
@@ -59,7 +59,7 @@ export const NewGame = ({
   };
 
   return (
-    <div className="card shadow-xl rounded-md flex flex-col" style={cardStyle}>
+    <div className="card shadow-xl h-full rounded-md flex flex-col" style={cardStyle}>
       <div className="h-12 bg-[#4c4a48] flex justify-start items-center rounded-t-md px-2">
         <img className="w-6 h-6" src={logoHangman} alt="" />
         <h3 className="ml-5 font-semibold text-base text-white">
