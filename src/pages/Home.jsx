@@ -12,7 +12,7 @@ const bgWindow = {
 
 
   return (
-    <div className='h-[100vh] flex p-4 sm:p-10 items-center justify-center' style={bgWindow}>
+    <div className='h-[80vh] sm:h-[100vh] flex p-4 sm:p-10 items-center justify-center' style={bgWindow}>
       <Router>
         <Routes>
           <Route path='/' element={<Window />}/>
