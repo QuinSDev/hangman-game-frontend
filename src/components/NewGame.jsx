@@ -5,6 +5,7 @@ import { HangmanImage } from "./HangmanImage";
 import { ImagesHangman } from "../api/ImagesHangman";
 import { Link } from "react-router-dom";
 import { Board } from "./Board";
+import { LettersFinds } from "./LettersFinds";
 
 export const NewGame = ({
   position,
@@ -14,6 +15,7 @@ export const NewGame = ({
   error,
   inputValue,
   setInputValue,
+  lettersFinds,
 }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
@@ -104,6 +106,9 @@ export const NewGame = ({
             inputValue={inputValue}
             setInputValue={setInputValue}
           />
+          <div className="sm:hidden">
+            <LettersFinds lettersFinds={lettersFinds} />
+          </div>
         </div>
       </div>
     </div>

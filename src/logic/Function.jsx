@@ -126,6 +126,7 @@ export const Function = () => {
         error={error}
         inputValue={inputValue}
         setInputValue={setInputValue}
+        lettersFinds={lettersFinds.join(" ")}
       />
       <div className="hidden md:block flex-col mt-auto">
         <LetterFind lettersFinds={lettersFinds.join(" ")} />
