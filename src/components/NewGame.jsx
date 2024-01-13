@@ -15,16 +15,35 @@ export const NewGame = ({
   inputValue,
   setInputValue
 }) => {
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      setWindowHeight(window.innerHeight)
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Limpiar el evento al desmontar el componente
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const cardStyle = {
+    width: windowWidth <= 600 ? '100%' : '750px',
+    height: windowHeight <= 600 ? '100%' : '559px'
+  };
+
   const borderStyle = {
     borderLeft: "3px solid #4c4a48",
     borderRight: "3px solid #4c4a48",
     borderBottom: "3px solid #4c4a48",
   };
-
-  const cardStyle = {
-    width: "750px",
-  };
-
+  
   const bodyStyle = {
     backgroundImage: `url(${bgWindowContent})`,
     backgroundSize: "cover",
