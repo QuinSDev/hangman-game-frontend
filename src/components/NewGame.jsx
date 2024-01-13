@@ -13,28 +13,27 @@ export const NewGame = ({
   scoreGame,
   error,
   inputValue,
-  setInputValue
+  setInputValue,
 }) => {
-
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight)
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
-      setWindowHeight(window.innerHeight)
+      setWindowHeight(window.innerHeight);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Limpiar el evento al desmontar el componente
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   const cardStyle = {
-    width: windowWidth <= 600 ? '100%' : '750px',
+    width: windowWidth <= 600 ? "100%" : "750px",
     // height: windowHeight <= 600 ? '100%' : '559px'
   };
 
@@ -43,7 +42,7 @@ export const NewGame = ({
     borderRight: "3px solid #4c4a48",
     borderBottom: "3px solid #4c4a48",
   };
-  
+
   const bodyStyle = {
     backgroundImage: `url(${bgWindowContent})`,
     backgroundSize: "cover",
@@ -59,7 +58,10 @@ export const NewGame = ({
   };
 
   return (
-    <div className="card shadow-xl h-full rounded-md flex flex-col" style={cardStyle}>
+    <div
+      className="card shadow-xl h-full rounded-md flex flex-col"
+      style={cardStyle}
+    >
       <div className="h-12 bg-[#4c4a48] flex justify-start items-center rounded-t-md px-2">
         <img className="w-6 h-6" src={logoHangman} alt="" />
         <h3 className="ml-5 font-semibold text-base text-white">
@@ -71,7 +73,7 @@ export const NewGame = ({
           className="rounded-b-md h-full relative overflow-hidden"
           style={bodyStyle}
         >
-          <div className="flex gap-3 p-2">
+          <div className="flex items-center gap-3 p-2">
             {/* <button
               className="w-24 h-8 text-black text-xs text-center "
               style={bgButton}
@@ -86,6 +88,12 @@ export const NewGame = ({
                 Atrás
               </button>
             </Link>
+            <div className="flex sm:hidden ml-auto">
+              <label htmlFor="" className="text-black">
+                PUNTAJE:
+              </label>
+              <p className="ml-3 w-9 text-black">{scoreGame}</p>
+            </div>
           </div>
           <HangmanImage imagesHangman={ImagesHangman} position={position} />
           <Board
