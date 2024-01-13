@@ -24,9 +24,9 @@
 }
 
 /* Cambia el ancho para pantallas de 540px o más */
-@media (min-width: 540px) {
+@media (min-width: 710px) {
   .inputStyle {
-      width: 375px; /* Ajusta este valor según tus necesidades */
+      width: 375px;
   }
 }
 
