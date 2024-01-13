@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 export const LetterInput = ({ onEnter, inputValue, setInputValue }) => {
-  const inputStyle = {
-    borderTop: "1px solid #85a0c9",
-    borderBottom: "1px solid #85a0c9",
-    borderRight: "1px solid #85a0c9",
-    borderLeft: "1px solid #85a0c9",
-    width: "375px",
-    height: "30px",
-  };
+  // const inputStyle = {
+  //   borderTop: "1px solid #85a0c9",
+  //   borderBottom: "1px solid #85a0c9",
+  //   borderRight: "1px solid #85a0c9",
+  //   borderLeft: "1px solid #85a0c9",
+  //   width: "375px",
+  //   height: "30px",
+  // };
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
@@ -30,9 +30,9 @@ export const LetterInput = ({ onEnter, inputValue, setInputValue }) => {
       <input
         id="enter-letter"
         type="text"
-        className="bg-transparent pl-3 outline-none text-black"
+        className="inputStyle bg-transparent pl-3 outline-none text-black"
         required
-        style={inputStyle}
+        // style={inputStyle}
         onKeyDown={handleKeyPress}
         onChange={handleChange}
         value={inputValue}

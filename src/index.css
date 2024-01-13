@@ -17,3 +17,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.inputStyle {
+  border: 1px solid #85a0c9;
+  width: 120px;
+  height: 30px;
+}
+
+/* Cambia el ancho para pantallas de 540px o más */
+@media (min-width: 540px) {
+  .inputStyle {
+      width: 375px; /* Ajusta este valor según tus necesidades */
+  }
+}
+
